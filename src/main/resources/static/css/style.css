@@ -14,3 +14,7 @@ input[type="image"]  {
     width: 25px;
     height: 25px;
 }
+
+.attribution-text {
+    padding-top: 50px;
+}

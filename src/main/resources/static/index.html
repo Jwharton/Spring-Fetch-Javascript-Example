@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>PersonCreator</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
@@ -31,10 +31,40 @@
             <tbody id="personTableBody"></tbody>
         </table>
     </div>
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="personEditForm">
+                        <div class="mb-3">
+                            <label class="form-label" for="editFullName">Edit full name</label>
+                            <input class="form-control" id="editFullName" name="name" type="text">
+                        </div>
+                        <button class="btn btn-primary" id="edit-btn" type="submit">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="editModalCloseBttn" >Close</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="attribution-text">
+            <div>Icons made by <a href="https://icon54.com/" title="Pixel perfect">Pixel perfect</a> from <a
+                    href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+            <div>Icons made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a
+                    href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></div>
+        </div>
+    </footer>
 </div>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
 </body>
-<footer>
-    <div>Icons made by <a href="https://icon54.com/" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-</footer>
 </html>
