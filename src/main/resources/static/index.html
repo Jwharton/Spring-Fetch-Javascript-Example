@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PersonCreator</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <h1>Person Creator</h1>
+    <div id="personFormContainer">
+        <form id="personCreationForm">
+            <div class="mb-3">
+                <label class="form-label" for="fullName">Please enter full name</label>
+                <input class="form-control" id="fullName" name="name" type="text">
+            </div>
+            <button class="btn btn-primary" id="create-btn" type="submit">Create Person</button>
+        </form>
+    </div>
+    <div id="personView">
+        <table class="table table-sm" id="personTable">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Person Name</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody id="personTableBody"></tbody>
+        </table>
+    </div>
+</div>
+<script src="js/script.js"></script>
+</body>
+<footer>
+    <div>Icons made by <a href="https://icon54.com/" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+</footer>
+</html>
