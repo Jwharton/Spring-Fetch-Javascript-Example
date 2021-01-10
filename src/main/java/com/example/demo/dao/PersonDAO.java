@@ -8,19 +8,19 @@ import java.util.UUID;
 
 public interface PersonDAO {
 
-    int insertPerson (UUID id, Person person);
+    int insertPerson (String personId, Person person);
 
     default int insertPerson(Person person) {
-        UUID id = UUID.randomUUID();
-        return insertPerson(id, person);
+        String personId = UUID.randomUUID().toString();
+        return insertPerson(personId, person);
     }
 
     List<Person> selectAllPeople();
 
-    int deletePersonByID(UUID id);
+    int deletePersonByID(String personId);
 
-    int updatePersonByID(UUID id, Person person);
+    int updatePersonByID(String personId, Person person);
 
-    Optional<Person> selectPersonById(UUID id);
+    Optional<Person> selectPersonById(String personId);
 
 }

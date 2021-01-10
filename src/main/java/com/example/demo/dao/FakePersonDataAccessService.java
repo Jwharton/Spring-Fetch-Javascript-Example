@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Repository ("fakeDao")
 public class FakePersonDataAccessService implements PersonDAO {
@@ -14,8 +13,8 @@ public class FakePersonDataAccessService implements PersonDAO {
     private static List<Person> DB = new ArrayList<>();
 
     @Override
-    public int insertPerson(UUID id, Person person) {
-        DB.add(new Person(id, person.getName()));
+    public int insertPerson(String personId, Person person) {
+        DB.add(new Person(personId, person.getName()));
         return 1;
     }
 
@@ -25,8 +24,8 @@ public class FakePersonDataAccessService implements PersonDAO {
     }
 
     @Override
-    public int deletePersonByID(UUID id) {
-        Optional<Person> person = selectPersonById(id);
+    public int deletePersonByID(String personId) {
+        Optional<Person> person = selectPersonById(personId);
         if (person.isEmpty()){
             return 0;
         }
@@ -35,11 +34,11 @@ public class FakePersonDataAccessService implements PersonDAO {
     }
 
     @Override
-    public int updatePersonByID(UUID id, Person update) {
-        return selectPersonById(id).map(existingPerson ->{
+    public int updatePersonByID(String personId, Person update) {
+        return selectPersonById(personId).map(existingPerson ->{
             int indexOfPersonToUpdate = DB.indexOf(existingPerson);
             if (indexOfPersonToUpdate >=0){
-                DB.set(indexOfPersonToUpdate, new Person(id, update.getName()));
+                DB.set(indexOfPersonToUpdate, new Person(personId, update.getName()));
                 return 1;
             }
             return 0;
@@ -47,7 +46,7 @@ public class FakePersonDataAccessService implements PersonDAO {
     }
 
     @Override
-    public Optional<Person> selectPersonById(UUID id) {
-        return DB.stream().filter(person -> person.getId().equals(id)).findFirst();
+    public Optional<Person> selectPersonById(String personId){
+        return DB.stream().filter(person -> person.getPersonId().equals(personId)).findFirst();
     }
 }

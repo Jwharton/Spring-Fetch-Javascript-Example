@@ -1,23 +1,26 @@
 package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import javax.validation.constraints.NotBlank;
-import java.util.UUID;
 
+@Document
 public class Person {
-
-    private final UUID id;
-
+    @Id
+    private final String personId;
     @NotBlank
     private final String name;
 
-    public Person(@JsonProperty("id") UUID id, @JsonProperty("name") String name) {
-        this.id = id;
+
+    public Person(@JsonProperty("personId") String personId, @JsonProperty("name") String name) {
+        this.personId = personId;
         this.name = name;
     }
 
-    public UUID getId() {
-        return id;
+    public String getPersonId() {
+        return personId;
     }
 
     public String getName() {

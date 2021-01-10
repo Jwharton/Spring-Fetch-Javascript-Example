@@ -156,7 +156,7 @@ function displayPersonInfo(data) {
     const personTable = document.getElementById("personTable");
 
     data.forEach(person => {
-        appendPersonInfoToTable(personTable, person.id, person.name)
+        appendPersonInfoToTable(personTable, person.personId, person.name)
     });
 }
 
@@ -164,14 +164,14 @@ function displayPersonInfo(data) {
  * Appends a row of person information, including edit and delete buttons to a
  * table that is displayed to the screen
  * @param personTable table displayed on the screen
- * @param id id of person to be added to the table
+ * @param personId id of person to be added to the table
  * @param name name of person to be added to the table
  */
-const appendPersonInfoToTable = (personTable, id, name) => {
+const appendPersonInfoToTable = (personTable, personId, name) => {
 
     const personTableBodyRow = createElement("tr", "personTableBodyRow");
 
-    const personID = createElementWithDisplayText("td", "id", id);
+    const personID = createElementWithDisplayText("td", "personId", personId);
 
     const personName = createElementWithDisplayText("td", "name", name);
 
@@ -236,7 +236,7 @@ function editPerson() {
 
     createEditModalHeader(tableRow);
 
-    const idToEdit = tableRow.getElementsByClassName("id").item(0).innerText;
+    const idToEdit = tableRow.getElementsByClassName("personId").item(0).innerText;
 
     const url = basePersonAPIURL + "/" + idToEdit;
 
@@ -300,7 +300,7 @@ const createDeleteButton = () => {
 function deletePerson() {
 
     const tableRow = this.parentNode.parentElement;
-    const idToDelete = tableRow.getElementsByClassName("id").item(0).innerText;
+    const idToDelete = tableRow.getElementsByClassName("personId").item(0).innerText;
 
     const deletionURL = basePersonAPIURL + "/" + idToDelete;
 
